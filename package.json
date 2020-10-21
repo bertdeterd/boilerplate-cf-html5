@@ -1,42 +1,23 @@
 {
-  "name": "my-app-normal",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
-  },
-  "dependencies": {
-    "core-js": "^3.6.5",
-    "vue": "^2.6.11"
-  },
+  "name": "zzhtml5module",
+  "version": "0.0.1",
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "vue-template-compiler": "^2.6.11"
+    "@sapui5/ts-types": "1.71.x",
+    "@ui5/cli": "2.2.6",
+    "@sap/ui5-builder-webide-extension": "1.0.x",
+    "bestzip": "2.1.4",
+    "rimraf": "3.0.2"
   },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {}
+  "scripts": {
+    "build": "mbt build",
+    "deploy": "cd mta_archives && cf deploy myvsapp_0.0.1.mtar",
+    "buildold": "npm run clean && ui5 build --include-task=generateManifestBundle generateCachebusterInfo && npm run zip",
+    "zip": "cd webapp/dist && npx bestzip ../webapp-content.zip *",
+    "clean": "npx rimraf zzHTML5Module-content.zip dist"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+  "ui5": {
+    "dependencies": [
+      "@sap/ui5-builder-webide-extension"
+    ]
+  }
 }

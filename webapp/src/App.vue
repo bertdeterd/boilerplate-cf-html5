@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    {{ serverinfo }}
+    <HelloWorld msg="Welcome to Your Vue.js App X"/>
   </div>
 </template>
 
@@ -10,8 +11,20 @@ import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
+   data: () => ({
+    connection: null,
+    serverinfo: null
+  }),
+
   components: {
     HelloWorld
+  },
+
+   created(){
+     const fetchData = { method: 'GET', headers: { 'Content-Type': 'text/plain' } }
+     fetch('sap/public/ping', fetchData).then( r => r.text() ).then( d => this.serverinfo = d ) 
+     
+    
   }
 }
 </script>

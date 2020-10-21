@@ -1,0 +1,45 @@
+{
+  "_version": "1.9.0",
+  "sap.cloud": {
+    "public": true,
+    "service": "net.stedin.myapp"
+  },
+  "sap.app": {
+    "id": "myappnormal2",
+    "type": "application",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "intent1": {
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          },
+          "semanticObject": "Dynamic",
+          "action": "display",
+          "title": "Myapp",
+          "info": "myapp",
+          "subTitle": "mysubtitle",
+          "icon": "sap-icon://account"
+        }
+      }
+    },
+    "ach": "ach",
+    "sourceTemplate": {
+      "id": "html5moduletemplates.basicSAPUI5ApplicationProjectModule",
+      "version": "1.40.12"
+    },
+    "dataSources": {
+      "mainService": {
+          "uri": "sap/opu/odata/sap/ZAPR_SRV_MAIN_SRV/",
+          "type": "OData",
+          "settings": {
+              "odataVersion": "2.0",
+              "localUri": "localService/metadata.xml"
+          }
+      }
+  }
+  }
+}

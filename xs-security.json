@@ -1,0 +1,21 @@
+{
+    "xsappname": "myvsapp",
+    "tenant-mode": "dedicated",
+    "description": "BD test",
+    "scopes": [
+      {
+        "name": "uaa.user",
+        "description": "UAA"
+      }
+    ],
+    "role-templates": [
+      {
+        "name": "BD_Token_Exchange",
+        "description": "UAA",
+        "scope-references": [
+          "uaa.user"
+        ]
+      }
+    ]
+  }  
+    

@@ -1,0 +1,26 @@
+{
+  "welcomeFile": "index.html",
+  "authenticationMethod": "route",
+  "routes": [
+   
+    {
+      "authenticationType": "none",
+      "csrfProtection": false,
+      "source": "^/sap/opu/odata/sap/ZAPR_SRV_MAIN_SRV/",
+      "destination": "SAP_HTTPS_EJ_BERTTEST2"
+    },
+    {
+      "authenticationType": "none",
+      "csrfProtection": false,
+      "source": "^/sap/public/ping",
+      "destination": "SAP_HTTPS_EJ_BERTTEST2"
+    },
+    {
+      "source": "^(.*)$",
+      "target": "$1",
+      "service": "html5-apps-repo-rt",
+      "authenticationType": "xsuaa"
+    }
+   
+  ]
+}

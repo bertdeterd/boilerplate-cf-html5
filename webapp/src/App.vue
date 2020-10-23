@@ -22,7 +22,7 @@ export default {
 
    created(){
      const fetchData = { method: 'GET', headers: { 'Content-Type': 'text/plain' } }
-     fetch('sap/public/ping', fetchData).then( r => r.text() ).then( d => this.serverinfo = d ) 
+     fetch('api/ping', fetchData).then( r => r.text() ).then( d => this.serverinfo = d ) 
      
     
   }

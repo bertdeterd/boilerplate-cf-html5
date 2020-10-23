@@ -1,9 +1,7 @@
 _schema-version: "3.2"
 ID: myvsapp
 version: 0.0.1
-
 modules:
-
 - name: myvsapp-destination-content
   type: com.sap.application.content
   requires:
@@ -22,11 +20,11 @@ modules:
     content:
       subaccount:
         destinations:
-        - Name: myvsapp_htmlrepohost
+        - Name: myvsapp_zztt_html_repo_host
           ServiceInstanceName: myvsapp-html5-app-host-service
           ServiceKeyName: myvsapp_html_repo_host-key
           sap.cloud.service: myvsapp
-        - Name: myvsapp_tokenexchange
+        - Name: myvsapp_uaa_zztt
           Authentication: OAuth2UserTokenExchange
           ServiceInstanceName: myvsapp-xsuaa-service
           ServiceKeyName: uaa_myvsapp-key
@@ -34,7 +32,6 @@ modules:
         existing_destinations_policy: update
   build-parameters:
     no-source: true
-
 - name: myvsapp_ui_deployer
   type: com.sap.application.content
   path: .
@@ -45,11 +42,10 @@ modules:
   build-parameters:
     build-result: mta_resources
     requires:
-    - name: webapp
-      artifacts:
+    - artifacts:
       - webapp-content.zip
+      name: webapp
       target-path: mta_resources/
-      
 - name: webapp
   type: html5
   path: webapp
@@ -60,7 +56,6 @@ modules:
         - npm run zip
     build-result: dist  
     supported-platforms: []
-
 resources:
 - name: myvsapp-destination-service
   type: org.cloudfoundry.managed-service
@@ -81,3 +76,4 @@ resources:
     service: xsuaa
     service-name: myvsapp-xsuaa-service
     service-plan: application
+

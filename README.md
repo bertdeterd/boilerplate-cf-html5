@@ -22,3 +22,10 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+- name: myvsapp-connectivity-srv
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: connectivity
+    service-name: myvsapp-connectivity-srv
+    service-plan: lite    

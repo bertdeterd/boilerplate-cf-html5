@@ -6,7 +6,7 @@
     {
       "authenticationType": "none",
       "csrfProtection": false,
-      "source": "^/sap/opu/odata/sap/ZAPR_SRV_MAIN_SRV/",
+      "source": "^/sap/opu/odata/sap/ZAPR_SRV_MAIN_SRV/(.*)$",
       "destination": "SAP_HTTPS_EJ_BERTTEST2"
     },
     {
